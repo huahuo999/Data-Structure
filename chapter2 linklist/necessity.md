@@ -1,7 +1,6 @@
-# Data-Structure
-记录考研数据结构的代码
+# chapter 2 Link List
 
-## Chapter 2 Link List
+## necessity
 
 ***
 
