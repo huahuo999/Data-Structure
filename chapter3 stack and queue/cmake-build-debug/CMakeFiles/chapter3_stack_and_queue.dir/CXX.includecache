@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/code/Github/Data-Structure/chapter3 stack and queue/LiStack.h
+
+D:/code/Github/Data-Structure/chapter3 stack and queue/LinkQueue.h
+
+D:/code/Github/Data-Structure/chapter3 stack and queue/ShStack.h
+
+D:/code/Github/Data-Structure/chapter3 stack and queue/SqQueue.h
+
+D:/code/Github/Data-Structure/chapter3 stack and queue/SqStack.h
+
+D:/code/Github/Data-Structure/chapter3 stack and queue/main.cpp
+iostream
+-
+LiStack.h
+D:/code/Github/Data-Structure/chapter3 stack and queue/LiStack.h
+ShStack.h
+D:/code/Github/Data-Structure/chapter3 stack and queue/ShStack.h
+SqStack.h
+D:/code/Github/Data-Structure/chapter3 stack and queue/SqStack.h
+SqQueue.h
+D:/code/Github/Data-Structure/chapter3 stack and queue/SqQueue.h
+LinkQueue.h
+D:/code/Github/Data-Structure/chapter3 stack and queue/LinkQueue.h
+
