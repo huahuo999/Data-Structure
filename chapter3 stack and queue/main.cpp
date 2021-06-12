@@ -62,6 +62,7 @@ bool bracketCheck(char str[], int length){
     }
     return StackEmpty(S);
 };
+//括号匹配算法
 using namespace std;
 int main() {
     char str[5]="{{}}";
