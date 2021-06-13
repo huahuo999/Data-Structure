@@ -1,0 +1,3 @@
+D:/code/Github/Data-Structure/chapter4 string/cmake-build-debug/CMakeFiles/chapter4_string.dir
+D:/code/Github/Data-Structure/chapter4 string/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/code/Github/Data-Structure/chapter4 string/cmake-build-debug/CMakeFiles/rebuild_cache.dir
