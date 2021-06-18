@@ -13,7 +13,7 @@ typedef struct BiTNode{
     ElemType data;
     struct BiTNode *lchild, *rchild;
 }BiTNode, *BiTree;
-
+//链表存储
 
 
 typedef struct ThreadNode{
@@ -44,9 +44,41 @@ void InThread(ThreadTree T){
     }
 }
 
+typedef struct BSTNode{
+    int key;
+    struct BSTNode *lchild,*rchild;
+}BSTNode, *BSTree;
 
+
+BSTNode *BST_Search(BSTree T,int key){
+    while (T!= nullptr&&key!=T->key){
+        if(key<T->key) T=T->lchild;
+        else T=T->rchild;
+    }
+    return T;
+}
+//在二叉排序树找到key的结点
+
+int BST_insert(BSTree &T, int k){
+    if(T== nullptr){
+        T=(BSTree)malloc(sizeof(BSTNode));
+        T->key=k;
+        T->lchild=T->rchild= nullptr;
+        return 1;
+    }
+    else if(k==T->key)
+        return 0;
+    else if(k<T->key)
+        return BST_insert(T->lchild, k);
+    else
+        return BST_insert(T->rchild, k);
+}
+//插入关键字K
 int main() {
-    BiTree root = nullptr;
+}
+
+/*
+ *     BiTree root = nullptr;
     root = (BiTree)malloc(sizeof(BiTNode));
     root->data = {1};
     root->lchild=nullptr;
@@ -57,4 +89,4 @@ int main() {
     p->rchild= nullptr;
     root->lchild=p;
     return 0;
-}
+ */
