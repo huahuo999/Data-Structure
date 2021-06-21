@@ -1,8 +1,31 @@
-# Chapter 2 SeqList and LinkList
-
-1. 
-
-```c++
+#include <iostream>
+#define MaxSize 10
+#define ElemType int
+typedef struct SeqList{
+    int *data;
+    int length;
+}SeqList;
+using namespace std;
+void InitSeqListWithOutInput(SeqList &L, int Length){
+    L.data = (int *)malloc(MaxSize* sizeof(int));
+    L.length = Length;
+}
+void InitSeqList(SeqList &L, int Length){
+    if(Length > MaxSize)
+        cout<<"too long";
+    L.data = (int *)malloc(MaxSize* sizeof(int));
+    L.length = Length;
+    for(int i=0;i<L.length;i++){
+        cin>>L.data[i];
+    }
+    cout<<"input end"<<endl;
+}
+void DisplaySeqList(SeqList L){
+    for(int i=0;i<L.length;i++){
+        cout<<L.data[i]<<endl;
+    }
+    cout<<"---------end----------"<<endl;
+}
 bool exercise_1(SeqList &L, int &x){
     if(L.length==0)
         return false;
@@ -20,18 +43,7 @@ bool exercise_1(SeqList &L, int &x){
     L.length --;
     return true;
 }
-/*  exercise_1
-SeqList L;
-InitSeqList(L, 5);
-int  x=0;
-cout<<exercise_1(L, x);
-DisplaySeqList(L);
- */
-```
 
-2.
-
-```c++
 void exercise_2(SeqList &L){
     for(int i=0;i<L.length/2;i++){
         ElemType temp;
@@ -41,18 +53,7 @@ void exercise_2(SeqList &L){
     }
 
 }
-/*  exercise_2
-SeqList L;
-InitSeqList(L, 5);
-exercise_2(L);
-DisplaySeqList(L);
- */
 
-```
-
-3.
-
-```c++
 void exercise_3(SeqList &L, int x){
     int deleteNum = 0;
     for(int i=0;i<L.length;i++){
@@ -64,18 +65,7 @@ void exercise_3(SeqList &L, int x){
     }
     L.length = L.length - deleteNum;
 }
-/*  exercise_3
- *     SeqList L;
-    InitSeqList(L, 5);
-    int x=2;
-    exercise_3(L, x);
-    DisplaySeqList(L);
- */
-```
 
-4.
-
-```c++
 bool exercise_4(SeqList &L, int s, int t){
     if(s>=t || L.length==0)
         return false;
@@ -89,19 +79,7 @@ bool exercise_4(SeqList &L, int s, int t){
     L.length = i;
     return true;
 }
-/*  exercise_4
- *     SeqList L;
-    InitSeqList(L, 5);
-    int s=2;
-    int t=4;
-    exercise_4(L, 2, 4);
-    DisplaySeqList(L);
- */
-```
 
-5.
-
-```c++
 bool exercise_5(SeqList &L, int s, int t){
     if(s>=t||L.length==0)
         return false;
@@ -116,19 +94,7 @@ bool exercise_5(SeqList &L, int s, int t){
     L.length = L.length - deleteNum;
     return true;
 }
-/*  exercise_5
- *     SeqList L;
-    InitSeqList(L, 5);
-    int s=2;
-    int t=4;
-    exercise_5(L, 2, 4);
-    DisplaySeqList(L);
- */
-```
 
-6.
-
-```
 bool exercise_6(SeqList &L){
     if(L.length==0)
         return false;
@@ -141,11 +107,6 @@ bool exercise_6(SeqList &L){
     return true;
 }
 
-```
-
-7.
-
-```c++
 bool exercise_7(SeqList A, SeqList B, SeqList &C){
     if(A.length+B.length>C.length)
         return false;
@@ -165,22 +126,13 @@ bool exercise_7(SeqList A, SeqList B, SeqList &C){
     return true;
 
 }
-/*  exercise_7
- *     SeqList A;
- *SeqList B;
- *SeqList C;
- *InitSeqList(A, 5);
- *InitSeqList(B,5);
- *InitSeqListWithOutInput(C, 10);
- *exercise_7(A,B,C);
- *DisplaySeqList(C);
- *
- */
-```
-
-8.
-
-```c++
+void ReverseSeqList(SeqList &L){
+    for(int i=0;i<L.length/2;i++){
+        int temp = L.data[i];
+        L.data[i] = L.data[L.length-i-1];
+        L.data[L.length-i-1] = temp;
+    }
+}
 void ReverseArray(int R[], int From, int To){
     for(int i=0;i<=(To-From)/2;i++){
         int temp;
@@ -198,17 +150,7 @@ void exercise_8(int Array[], int left, int right, int Length){
     }
 
 }
-/*  exercise_8
- * int Array[5];
- * for(int & i : Array) 
- * cin>>i;
- * exercise_8(Array, 3, 2, 5);
- */
-```
 
-9.
-
-```c++
 void exercise_9(SeqList &L, int x){
     int low=0,high=L.length-1, mid = 0;
     while(low<=high){
@@ -234,26 +176,6 @@ void exercise_9(SeqList &L, int x){
         L.data[i+1] =x;
     }
 }
-/*  exercise_9
- *     SeqList L;
-    InitSeqList(L, 5);
-    exercise_9(L, 3);
-    DisplaySeqList(L);
-
- */
-```
-
-10.
-
-```c++
-void ReverseArray(int R[], int From, int To){
-    for(int i=From;i<=(To-From+1)/2;i++){
-        int temp;
-        temp = R[i];
-        R[i] = R[To+From-i];
-        R[To+From-i] = temp;
-    }
-}
 void exercise_10(int R[], int n, int p){
     ReverseArray(R, 0, p-2);
     ReverseArray(R, p-1, n-1);
@@ -262,18 +184,7 @@ void exercise_10(int R[], int n, int p){
         cout<<R[i]<<endl;
     }
 }
-/*  exercise_10
-int A[5];
-for(int & i : A){
-cin>>i;
-}
-exercise_10(A, 5, 3);
- */
-```
 
-11.
-
-```c++
 int exercise_11(SeqList L1, SeqList L2){
     int index1=0, index2=0, count=0;
     int threshold = L1.length;
@@ -294,6 +205,97 @@ int exercise_11(SeqList L1, SeqList L2){
     }
 
 }
+int main(){
+    SeqList L1;
+    InitSeqList(L1, 5);
+    SeqList L2;
+    InitSeqList(L2, 5);
+    cout<<"answer="<<exercise_11(L1, L2);
+
+
+}
+/*  exercise_1
+SeqList L;
+InitSeqList(L, 5);
+int  x=0;
+cout<<exercise_1(L, x);
+DisplaySeqList(L);
+ */
+
+/*  exercise_2
+SeqList L;
+InitSeqList(L, 5);
+exercise_2(L);
+DisplaySeqList(L);
+ */
+
+/*  exercise_3
+ *     SeqList L;
+    InitSeqList(L, 5);
+    int x=2;
+    exercise_3(L, x);
+    DisplaySeqList(L);
+ */
+/*  exercise_4
+ *     SeqList L;
+    InitSeqList(L, 5);
+    int s=2;
+    int t=4;
+    exercise_4(L, 2, 4);
+    DisplaySeqList(L);
+ */
+
+/*  exercise_5
+ *     SeqList L;
+    InitSeqList(L, 5);
+    int s=2;
+    int t=4;
+    exercise_5(L, 2, 4);
+    DisplaySeqList(L);
+ */
+
+
+/*  exercise_6
+ *     SeqList L;
+    InitSeqList(L, 5);
+    exercise_6(L);
+    DisplaySeqList(L);
+ */
+
+
+/*  exercise_7
+ *     SeqList A;
+ *SeqList B;
+ *SeqList C;
+ *InitSeqList(A, 5);
+ *InitSeqList(B,5);
+ *InitSeqListWithOutInput(C, 10);
+ *exercise_7(A,B,C);
+ *DisplaySeqList(C);
+ *
+ */
+
+/*  exercise_8
+ * int Array[5];
+ * for(int & i : Array)
+ * cin>>i;
+ * exercise_8(Array, 3, 2, 5);
+ */
+
+/*  exercise_9
+ *     SeqList L;
+    InitSeqList(L, 5);
+    exercise_9(L, 3);
+    DisplaySeqList(L);
+
+ */
+/*  exercise_10
+int A[5];
+for(int & i : A){
+cin>>i;
+}
+exercise_10(A, 5, 3);
+ */
 /*  exercise_11
  *     SeqList L1;
     InitSeqList(L1, 5);
@@ -301,5 +303,3 @@ int exercise_11(SeqList L1, SeqList L2){
     InitSeqList(L2, 5);
     cout<<"answer="<<exercise_11(L1, L2);
  */
-```
-
