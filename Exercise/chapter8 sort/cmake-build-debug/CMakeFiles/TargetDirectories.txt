@@ -1,3 +1,0 @@
-D:/code/Github/Data-Structure/Exercise/chapter8 sort/cmake-build-debug/CMakeFiles/chapter8_sort.dir
-D:/code/Github/Data-Structure/Exercise/chapter8 sort/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/code/Github/Data-Structure/Exercise/chapter8 sort/cmake-build-debug/CMakeFiles/rebuild_cache.dir
