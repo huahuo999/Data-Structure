@@ -30,7 +30,7 @@ void InsertSortBinary(int A[], int n){
         A[high+1] = A[0];
     }
 }
-//折半插入排序时间复杂度O（n^2）稳定性
+//折半插入排序时间复杂度O（n^2）稳定性 稳定
 void ShellSort(int A[], int n){
     int d,i,j;
     for(d=n/2;d>=1;d=d/2)
